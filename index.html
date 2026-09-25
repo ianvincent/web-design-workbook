@@ -5,32 +5,100 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web Design Workbook</title>
-    
+
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <header>
-        <h1>Learn Web Design</h1>
-        <p>Learn how to build modern webpages using HTML and CSS.</p>
+    <header class="site-header">
+        <div class="container header-inner">
+            <h1>Web Design Workbook</h1>
+
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="lessons/01-layout.html">Lessons</a>
+            </nav>
+        </div>
     </header>
 
-    <main>
+    <main class="container">
 
-        <h2>Lessons</h2>
+        <section class="hero">
+            <p class="eyebrow">Web Design</p>
 
-        <p>Welcome to the Web Design Workbook.</p>
+            <h2>Build modern webpages step by step</h2>
 
-        <ul>
-            <li>HTML and CSS Review</li>
-            <li>From Boxes to Layout</li>
-            <li>Flexbox</li>
-            <li>Responsive Design</li>
-            <li>CSS Grid</li>
-        </ul>
+            <p>
+                This workbook will help you move from basic HTML and CSS
+                into layout, responsive design and CSS Grid.
+            </p>
+
+            <a class="button" href="lessons/01-layout.html">
+                Start the workbook
+            </a>
+        </section>
+
+        <section>
+
+            <h2>Lessons</h2>
+
+            <div class="lesson-grid">
+
+                <article class="lesson-card">
+                    <span class="lesson-number">01</span>
+                    <h3>From Boxes to Layout</h3>
+                    <p>
+                        Understand normal document flow and build your
+                        first Flexbox layout.
+                    </p>
+
+                    <a href="lessons/01-layout.html">Start lesson →</a>
+                </article>
+
+                <article class="lesson-card">
+                    <span class="lesson-number">02</span>
+                    <h3>Flexbox</h3>
+                    <p>
+                        Learn alignment, spacing and how to build
+                        navigation and card layouts.
+                    </p>
+
+                    <span class="coming-soon">Coming soon</span>
+                </article>
+
+                <article class="lesson-card">
+                    <span class="lesson-number">03</span>
+                    <h3>Responsive Design</h3>
+                    <p>
+                        Adapt layouts for different screen sizes using
+                        media queries.
+                    </p>
+
+                    <span class="coming-soon">Coming soon</span>
+                </article>
+
+                <article class="lesson-card">
+                    <span class="lesson-number">04</span>
+                    <h3>CSS Grid</h3>
+                    <p>
+                        Build layouts using rows and columns.
+                    </p>
+
+                    <span class="coming-soon">Coming soon</span>
+                </article>
+
+            </div>
+
+        </section>
 
     </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>Web Design Workbook</p>
+        </div>
+    </footer>
 
 </body>
 
