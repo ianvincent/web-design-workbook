@@ -1,1 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>From Boxes to Layout | Web Design Workbook</title>
+
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+
+        <div class="container header-inner">
+
+            <h1>Web Design Workbook</h1>
+
+            <nav>
+                <a href="../index.html">Home</a>
+                <a href="01-layout.html">Lessons</a>
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <main class="container">
+
+        <header class="lesson-header">
+
+            <p class="eyebrow">Lesson 01</p>
+
+            <h1>From Boxes to Layout</h1>
+
+            <p class="lesson-intro">
+                You already know how to create HTML elements and style
+                them using CSS. Now we are going to learn how to control
+                where those elements appear on the page.
+            </p>
+
+        </header>
+
+
+        <section class="lesson-section">
+
+            <h2>What you will learn</h2>
+
+            <p>By the end of this lesson you should be able to:</p>
+
+            <ul>
+                <li>explain normal document flow</li>
+                <li>identify a flex container</li>
+                <li>identify flex items</li>
+                <li>use <code>display: flex</code></li>
+                <li>create space between items using <code>gap</code></li>
+            </ul>
+
+        </section>
+
+
+        <section class="lesson-section">
+
+            <h2>1. Remember the box model?</h2>
+
+            <p>
+                Every HTML element creates a box.
+            </p>
+
+            <p>
+                You have already worked with the parts of that box:
+                content, padding, border and margin.
+            </p>
+
+            <div class="question-box">
+
+                <h3>Think</h3>
+
+                <p>
+                    If we create three <code>&lt;article&gt;</code>
+                    elements, where will they appear by default?
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <section class="lesson-section">
+
+            <h2>2. Create three cards</h2>
+
+            <p>
+                We are going to create three cards representing the
+                three core technologies used on the web.
+            </p>
+
+            <div class="code-block">
+
+                <div class="code-header">
+                    <span>HTML</span>
+                    <button class="copy-button">Copy</button>
+                </div>
+
+                <pre><code>&lt;section class="cards"&gt;
+
+    &lt;article class="card"&gt;
+        &lt;h2&gt;HTML&lt;/h2&gt;
+        &lt;p&gt;HTML provides the structure of a webpage.&lt;/p&gt;
+    &lt;/article&gt;
+
+    &lt;article class="card"&gt;
+        &lt;h2&gt;CSS&lt;/h2&gt;
+        &lt;p&gt;CSS controls the appearance and layout of a webpage.&lt;/p&gt;
+    &lt;/article&gt;
+
+    &lt;article class="card"&gt;
+        &lt;h2&gt;JavaScript&lt;/h2&gt;
+        &lt;p&gt;JavaScript adds behaviour and interaction.&lt;/p&gt;
+    &lt;/article&gt;
+
+&lt;/section&gt;</code></pre>
+
+            </div>
+
+
+            <div class="task-box">
+
+                <h3>Your turn</h3>
+
+                <p>
+                    Add this section to your webpage.
+                </p>
+
+                <p>
+                    Save the file and view it in your browser.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <section class="lesson-section">
+
+            <h2>3. Style the cards</h2>
+
+            <p>
+                Add the following CSS.
+            </p>
+
+            <div class="code-block">
+
+                <div class="code-header">
+                    <span>CSS</span>
+                    <button class="copy-button">Copy</button>
+                </div>
+
+                <pre><code>.card {
+    border: 2px solid #333;
+    padding: 20px;
+    margin-bottom: 20px;
+}</code></pre>
+
+            </div>
+
+            <div class="question-box">
+
+                <h3>Question</h3>
+
+                <p>
+                    Why do the cards still appear one underneath another?
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <section class="lesson-section">
+
+            <h2>4. Normal document flow</h2>
+
+            <p>
+                By default, block elements normally appear one underneath
+                another.
+            </p>
+
+            <p>
+                Making an element narrower does not automatically make
+                another element move alongside it.
+            </p>
+
+            <div class="challenge-box">
+
+                <h3>Experiment</h3>
+
+                <p>Add this property to the card:</p>
+
+                <div class="code-block">
+
+                    <div class="code-header">
+                        <span>CSS</span>
+                        <button class="copy-button">Copy</button>
+                    </div>
+
+                    <pre><code>width: 200px;</code></pre>
+
+                </div>
+
+                <p>
+                    What happens?
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <section class="lesson-section">
+
+            <h2>5. Introducing Flexbox</h2>
+
+            <p>
+                We want the three cards to appear next to each other.
+            </p>
+
+            <p>
+                To do this, we can turn their parent element into a
+                flex container.
+            </p>
+
+            <div class="code-block">
+
+                <div class="code-header">
+                    <span>CSS</span>
+                    <button class="copy-button">Copy</button>
+                </div>
+
+                <pre><code>.cards {
+    display: flex;
+}</code></pre>
+
+            </div>
+
+            <div class="task-box">
+
+                <h3>Your turn</h3>
+
+                <p>
+                    Add this rule to your stylesheet and refresh
+                    the browser.
+                </p>
+
+                <p>
+                    What changed?
+                </p>
+
+            </div>
+
+            <div class="example-box">
+
+                <h3>New terminology</h3>
+
+                <p>
+                    The element with <code>display: flex</code> is called
+                    the <strong>flex container</strong>.
+                </p>
+
+                <p>
+                    Its direct children become
+                    <strong>flex items</strong>.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <section class="lesson-section">
+
+            <h2>6. Add space between the cards</h2>
+
+            <p>
+                The cards are now sitting next to each other, but they
+                need some breathing room.
+            </p>
+
+            <div class="code-block">
+
+                <div class="code-header">
+                    <span>CSS</span>
+                    <button class="copy-button">Copy</button>
+                </div>
+
+                <pre><code>.cards {
+    display: flex;
+    gap: 20px;
+}</code></pre>
+
+            </div>
+
+            <div class="question-box">
+
+                <h3>Check your understanding</h3>
+
+                <p>What does <code>gap</code> control?</p>
+
+                <p>
+                    A. The space inside each card<br>
+                    B. The space between the cards<br>
+                    C. The width of each card
+                </p>
+
+            </div>
+
+            <details>
+
+                <summary>Show answer</summary>
+
+                <p>
+                    <strong>B.</strong> The <code>gap</code> property
+                    controls the space between flex items.
+                </p>
+
+            </details>
+
+        </section>
+
+
+        <section class="lesson-section">
+
+            <h2>7. Make the cards equal width</h2>
+
+            <p>
+                Add this rule:
+            </p>
+
+            <div class="code-block">
+
+                <div class="code-header">
+                    <span>CSS</span>
+                    <button class="copy-button">Copy</button>
+                </div>
+
+                <pre><code>.card {
+    flex: 1;
+}</code></pre>
+
+            </div>
+
+            <p>
+                Each card will now take an equal share of the available
+                space.
+            </p>
+
+        </section>
+
+
+        <section class="lesson-section">
+
+            <h2>Challenge</h2>
+
+            <div class="challenge-box">
+
+                <h3>Can you build it?</h3>
+
+                <p>
+                    Without copying another example, try to create four
+                    cards representing:
+                </p>
+
+                <ul>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                    <li>GitHub</li>
+                </ul>
+
+                <p>
+                    Make them appear in one row with space between them.
+                </p>
+
+            </div>
+
+            <details>
+
+                <summary>Hint</summary>
+
+                <p>
+                    Remember: the parent element needs to become the
+                    flex container.
+                </p>
+
+            </details>
+
+            <details>
+
+                <summary>Show solution</summary>
+
+                <div class="code-block">
+
+                    <div class="code-header">
+                        <span>CSS</span>
+                        <button class="copy-button">Copy</button>
+                    </div>
+
+                    <pre><code>.cards {
+    display: flex;
+    gap: 20px;
+}
+
+.card {
+    flex: 1;
+}</code></pre>
+
+                </div>
+
+            </details>
+
+        </section>
+
+
+        <nav class="lesson-navigation">
+
+            <a href="../index.html">← Workbook home</a>
+
+            <span>Next lesson →</span>
+
+        </nav>
+
+    </main>
+
+
+    <footer class="site-footer">
+
+        <div class="container">
+            <p>Web Design Workbook</p>
+        </div>
+
+    </footer>
+
+
+    <script src="../script.js"></script>
+
+</body>
+
+</html>
