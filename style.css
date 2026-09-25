@@ -9,7 +9,6 @@
     --cyan: #16c7d9;
     --yellow: #ffd166;
     --green: #38c793;
-    --pink: #ff5d8f;
 
     --background: #f5f6ff;
     --surface: #ffffff;
@@ -18,7 +17,13 @@
     --border: #dedff0;
 
     --code-bg: #151526;
+    --code-header: #24243e;
 }
+
+
+/* =================================
+   BASE
+   ================================= */
 
 body {
     margin: 0;
@@ -28,12 +33,42 @@ body {
     background: var(--background);
 }
 
+h1,
+h2,
+h3 {
+    line-height: 1.2;
+}
+
+h1,
+h2,
+h3,
+p {
+    margin-top: 0;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+ul,
+ol {
+    padding-left: 1.5rem;
+}
+
+li {
+    margin-bottom: 0.4rem;
+}
+
 img {
     max-width: 100%;
 }
 
 a {
     color: var(--purple);
+}
+
+strong {
+    color: var(--navy);
 }
 
 .container {
@@ -56,12 +91,15 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 20px;
+
     padding-top: 20px;
     padding-bottom: 20px;
 }
 
 .site-header h1 {
     margin: 0;
+    color: white;
     font-size: 1.45rem;
 }
 
@@ -74,7 +112,7 @@ a {
     color: white;
     text-decoration: none;
     padding: 8px 14px;
-    border-radius: 6px;
+    border-radius: 7px;
 }
 
 .site-header nav a:hover {
@@ -83,49 +121,63 @@ a {
 
 
 /* =================================
-   HOMEPAGE HERO
+   EYEBROW LABEL
    ================================= */
-
-.hero {
-    padding: 90px 0 70px;
-    max-width: 760px;
-}
-
-.hero h2 {
-    font-size: clamp(2.5rem, 6vw, 4rem);
-    line-height: 1.05;
-    margin: 0 0 25px;
-}
-
-.hero p {
-    font-size: 1.15rem;
-    color: var(--muted);
-}
 
 .eyebrow {
     display: inline-block;
-    color: var(--purple);
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    font-size: 0.85rem;
+
     margin-bottom: 10px;
+
+    color: var(--purple);
+    font-size: 0.85rem;
+    font-weight: bold;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
 }
 
 
 /* =================================
-   BUTTON
+   HOMEPAGE HERO
+   ================================= */
+
+.hero {
+    max-width: 760px;
+    padding: 90px 0 70px;
+}
+
+.hero h2 {
+    margin-bottom: 25px;
+
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    line-height: 1.05;
+    color: var(--navy);
+}
+
+.hero p {
+    max-width: 680px;
+    color: var(--muted);
+    font-size: 1.15rem;
+}
+
+
+/* =================================
+   BUTTONS
    ================================= */
 
 .button {
     display: inline-block;
+
+    margin-top: 10px;
+    padding: 13px 22px;
+
     background: var(--purple);
     color: white;
-    padding: 13px 22px;
+
     text-decoration: none;
     font-weight: bold;
+
     border-radius: 8px;
-    margin-top: 10px;
     box-shadow: 0 5px 0 var(--purple-dark);
 }
 
@@ -136,36 +188,65 @@ a {
 
 
 /* =================================
-   HOMEPAGE LESSON CARDS
+   HOMEPAGE LESSONS
    ================================= */
+
+.home-lessons {
+    padding: 20px 0 70px;
+}
+
+.home-lessons > h2 {
+    margin-bottom: 30px;
+
+    color: var(--navy);
+    font-size: 2rem;
+}
 
 .lesson-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 24px;
-    padding-bottom: 70px;
 }
 
 .lesson-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+
+    min-height: 250px;
     padding: 28px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
     border-radius: 14px;
+
     box-shadow: 0 8px 24px rgba(29, 26, 75, 0.08);
-    transition: transform 0.2s;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
 .lesson-card:hover {
     transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(29, 26, 75, 0.12);
 }
 
 .lesson-card h3 {
-    margin-top: 8px;
+    margin-top: 10px;
+    margin-bottom: 12px;
+
+    color: var(--navy);
     font-size: 1.35rem;
 }
 
 .lesson-card p {
     color: var(--muted);
+}
+
+.lesson-card a,
+.lesson-card .coming-soon {
+    margin-top: auto;
 }
 
 .lesson-card a {
@@ -174,13 +255,17 @@ a {
 }
 
 .lesson-number {
-    display: inline-block;
+    align-self: flex-start;
+
+    padding: 4px 9px;
+
     background: var(--purple);
     color: white;
-    font-weight: bold;
-    padding: 4px 9px;
-    border-radius: 6px;
+
     font-size: 0.8rem;
+    font-weight: bold;
+
+    border-radius: 6px;
 }
 
 .coming-soon {
@@ -198,15 +283,19 @@ a {
 }
 
 .lesson-header h1 {
+    margin: 5px 0 20px;
+
+    color: var(--navy);
+
     font-size: clamp(2.5rem, 6vw, 4rem);
     line-height: 1.05;
-    margin: 5px 0 20px;
 }
 
 .lesson-intro {
     max-width: 760px;
-    font-size: 1.2rem;
+
     color: var(--muted);
+    font-size: 1.2rem;
 }
 
 
@@ -215,18 +304,22 @@ a {
    ================================= */
 
 .lesson-section {
-    background: var(--surface);
-    padding: 34px;
     margin: 30px 0;
-    border-radius: 14px;
+    padding: 34px;
+
+    background: var(--surface);
+
     border: 1px solid var(--border);
+    border-radius: 14px;
+
     box-shadow: 0 8px 24px rgba(29, 26, 75, 0.06);
 }
 
 .lesson-section h2 {
-    margin-top: 0;
-    font-size: 1.7rem;
+    margin-bottom: 18px;
+
     color: var(--navy);
+    font-size: 1.7rem;
 }
 
 .lesson-section > p {
@@ -242,8 +335,9 @@ a {
 .example-box,
 .question-box,
 .challenge-box {
-    padding: 22px 24px;
     margin: 28px 0;
+    padding: 22px 24px;
+
     border-radius: 10px;
 }
 
@@ -251,7 +345,7 @@ a {
 .example-box h3,
 .question-box h3,
 .challenge-box h3 {
-    margin-top: 0;
+    margin-bottom: 10px;
 }
 
 
@@ -313,22 +407,28 @@ code {
 
 p code,
 li code {
+    padding: 2px 6px;
+
     background: #edeafd;
     color: #4933aa;
-    padding: 2px 6px;
+
     border-radius: 4px;
+
     font-size: 0.95em;
 }
 
 
 /* =================================
-   CODE BLOCKS
+   CODE BLOCK COMPONENT
    ================================= */
 
 .code-block {
     margin: 28px 0;
-    border-radius: 10px;
+
     overflow: hidden;
+
+    border-radius: 10px;
+
     box-shadow: 0 8px 20px rgba(15, 15, 35, 0.14);
 }
 
@@ -336,20 +436,28 @@ li code {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #24243e;
-    color: white;
+
+    min-height: 42px;
     padding: 9px 14px;
+
+    background: var(--code-header);
+    color: white;
+
     font-size: 0.85rem;
     font-weight: bold;
 }
 
 .copy-button {
-    border: 1px solid #777795;
+    padding: 6px 12px;
+
     background: #343452;
     color: white;
-    padding: 6px 12px;
-    cursor: pointer;
+
+    border: 1px solid #777795;
     border-radius: 5px;
+
+    font: inherit;
+    cursor: pointer;
 }
 
 .copy-button:hover {
@@ -359,56 +467,66 @@ li code {
 pre {
     margin: 0;
     padding: 24px;
+
     overflow-x: auto;
+
     background: var(--code-bg);
     color: #f7f7ff;
+
     line-height: 1.55;
 }
 
 pre code {
+    padding: 0;
+
     background: transparent;
     color: inherit;
-    padding: 0;
+
+    border-radius: 0;
 }
 
 
 /* =================================
-   HINTS & SOLUTIONS
+   HINTS AND SOLUTIONS
    ================================= */
 
 details {
     margin: 20px 0;
-    border: 1px solid var(--border);
-    background: white;
-    border-radius: 9px;
+
     overflow: hidden;
+
+    background: white;
+
+    border: 1px solid var(--border);
+    border-radius: 10px;
 }
 
 summary {
-    cursor: pointer;
     padding: 16px 20px;
-    font-weight: bold;
-    color: var(--purple-dark);
+
     background: #f1efff;
+    color: var(--purple-dark);
+
+    font-weight: bold;
+
+    cursor: pointer;
 }
 
-details > p,
-details > div {
+summary:hover {
+    background: #e8e4ff;
+}
+
+details[open] summary {
+    border-bottom: 1px solid var(--border);
+}
+
+details > :not(summary) {
     margin-left: 20px;
     margin-right: 20px;
 }
 
-details[open] {
-    padding-bottom: 10px;
-}
-
-
-/* =================================
-   LISTS
-   ================================= */
-
-.lesson-section li {
-    margin-bottom: 8px;
+details > :last-child {
+    margin-bottom: 20px;
 }
 
 
@@ -419,18 +537,28 @@ details[open] {
 .lesson-navigation {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     gap: 20px;
+
     padding: 35px 0 75px;
 }
 
 .lesson-navigation a {
     display: inline-block;
-    text-decoration: none;
-    font-weight: bold;
+
+    padding: 11px 18px;
+
     background: var(--purple);
     color: white;
-    padding: 11px 18px;
+
+    text-decoration: none;
+    font-weight: bold;
+
     border-radius: 7px;
+}
+
+.lesson-navigation a:hover {
+    background: var(--purple-dark);
 }
 
 .lesson-navigation span {
@@ -444,14 +572,16 @@ details[open] {
    ================================= */
 
 .site-footer {
-    background: var(--navy);
-    color: white;
     margin-top: 60px;
     padding: 30px 0;
+
+    background: var(--navy);
+    color: white;
 }
 
 .site-footer p {
     margin: 0;
+    color: white;
 }
 
 
@@ -461,18 +591,26 @@ details[open] {
 
 @media (max-width: 700px) {
 
+    .container {
+        width: min(100% - 28px, 1050px);
+    }
+
     .header-inner {
         flex-direction: column;
         align-items: flex-start;
-        gap: 15px;
     }
 
-    .lesson-grid {
-        grid-template-columns: 1fr;
+    .site-header nav {
+        flex-wrap: wrap;
     }
 
     .hero {
         padding-top: 60px;
+        padding-bottom: 50px;
+    }
+
+    .lesson-grid {
+        grid-template-columns: 1fr;
     }
 
     .lesson-header {
@@ -483,8 +621,25 @@ details[open] {
         padding: 24px;
     }
 
-    .lesson-navigation {
-        flex-direction: column;
+    .task-box,
+    .example-box,
+    .question-box,
+    .challenge-box {
+        padding: 18px;
     }
 
+    pre {
+        padding: 18px;
+        font-size: 0.9rem;
+    }
+
+    .lesson-navigation {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .lesson-navigation a,
+    .lesson-navigation span {
+        text-align: center;
+    }
 }
